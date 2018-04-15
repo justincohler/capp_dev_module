@@ -1,5 +1,5 @@
 branca==0.2.0
-capp30254-ml==0.0.1
+capp_demo==0.0.1
 certifi==2018.1.18
 chardet==3.0.4
 click==6.7
