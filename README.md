@@ -64,6 +64,11 @@ grep
 kill
 
 ***********************************************************
+## Bash Scripts
+if/fi
+loops
+
+***********************************************************
 ## Working with Paths
 Exporting a variable
 Exporting PATH
