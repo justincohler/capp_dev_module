@@ -1,9 +1,9 @@
 # CAPP Development Module
 [![Build Status](https://travis-ci.org/justincohler/capp_demo.svg?branch=master)](https://travis-ci.org/justincohler/capp_demo)
 
-[Slide Deck](https://docs.google.com/presentation/d/1Y7EJ8do0qUN05D7yQeSgReTaOUcA7bIBS4b_ZWVNtmo/edit?usp=sharing)
+[Accompanying Slide Deck](https://docs.google.com/presentation/d/1Y7EJ8do0qUN05D7yQeSgReTaOUcA7bIBS4b_ZWVNtmo/edit?usp=sharing)
 
-This repository serves to help CAPP students refresh their skills with unix-style command line tools, file-system, and common python development setup requirements for collaborative development.
+**Purpose**: This repository serves to help CAPP students refresh their skills with unix-style command line tools, file-system, and common python development setup requirements for collaborative development.
 
 ## Speed up your workflow
 Before we get started, there are five basic CLI tips that will make the rest of the module and your life easier:
@@ -28,7 +28,7 @@ Before we get started, there are five basic CLI tips that will make the rest of 
 
 ***********************************************************
 ## Review Getting Around (Warmup)
-Cheatsheet:
+### Cheatsheet
 
 |     Command | Name                      | Description                              | Common arguments                                                 | Example                            |
 | ----------: | :------------------------ | :--------------------------------------- | ---------------------------------------------------------------- | ---------------------------------- |
@@ -72,8 +72,43 @@ bashrc, bash_profile
 
 ***********************************************************
 ## Remote Shells (SSH)
-Public and private keys
-The config file
+
+SSH is a trust-based remote access system, one of the underlying ways of provisioning Amazon Web Services (AWS) and other cloud providers.
+
+### Requirements
+* a "public key" that can be shared with anyone (named ```id_rsa.pub``` by default)
+* a "private key", never to be shared (named ```id_rsa``` by default)
+* the public key stored in the host's ```authorized_keys``` file access to that host
+
+### Why public and private keys?
+When two users communicate over the internet, it is assumed that bad actors may listen to the wire communications. By combining your private key with another user's public key using clever elements of polynomials, you can establish trust via a confirmation message only the two users can decipher.
+
+### Public and Private Keys
+By default, keys live in ```~/.ssh```. If there are no keys in your user ssh folder, create keys via the following command-line program and follow the wizard (note that a password is not required):
+```
+$> ssh keygen
+```
+The above script will place a public and private "key pair" in your user's home directory (```~/.ssh```).
+
+***********************************************************
+### The ```config``` File
+Creating ssh shortcuts for common locations can be done in the ```~/.ssh/config``` file, searched for by default by the ssh program. The basic format is shown below:
+```
+Host <nickname>
+    User <username>
+    Hostname <hostname>
+```
+There are plenty of other arguments, but for the sake of this exercise, these are all we need. 
+
+### Exercise
+
+* Paste the contents of your public key in the ```#capp-dev-module``` Slack channel.
+* Create a new entry in your ```~/.ssh/config``` file (or a new file altogether) with the following details:
+  * nickname: "capp-dev"
+  * username: "ec2-user"
+  * hostname: #TODO
+* ssh into this host with ```ssh <nickname>```, in this case ```ssh capp-dev```. (Note this will only work once I've added your public key to the list of ```authorized_keys```)
+* Create a new empty file with ```touch``` in the ec2-user's home directory.
 
 ***********************************************************
 ## Sending Files (SCP)
