@@ -108,11 +108,25 @@ There are plenty of other arguments, but for the sake of this exercise, these ar
   * username: "ec2-user"
   * hostname: #TODO
 * ssh into this host with ```ssh <nickname>```, in this case ```ssh capp-dev```. (Note this will only work once I've added your public key to the list of ```authorized_keys```)
-* Create a new empty file with ```touch``` in the ec2-user's home directory.
+* Create a new empty file with ```touch``` in the ec2-user's ```~/capp_ssh``` directory.
 
 ***********************************************************
 ## Sending Files (SCP)
-Send a file
+Most of the time, you will want to send pre-packaged files to a server for unwrapping and execution (in the case of an app you've built to run in the cloud). In this case, without a nice user interface, ```scp``` is the tool for the job. 
+
+### Exercise
+Let's repeat the previous exercise, this time touching a new fil locally, then using ```scp``` to send it to the ec2 server.
+
+Format:
+```
+$> scp <file/folder> <username>@<hostname>:<path_to_folder>
+```
+
+In this case, your command will look like the following:
+```
+scp <your_file> ec2-user@#TODO:~/capp_scp/
+```
+Your command should complete without error
 
 ***********************************************************
 ## Working with APIs
