@@ -71,7 +71,7 @@ Exporting PATH
 bashrc, bash_profile
 
 ***********************************************************
-## Remote Shells (SSH)
+## Remote Shells (```ssh```)
 
 SSH is a trust-based remote access system, one of the underlying ways of provisioning Amazon Web Services (AWS) and other cloud providers.
 
@@ -109,9 +109,13 @@ There are plenty of other arguments, but for the sake of this exercise, these ar
   * hostname: #TODO
 * ssh into this host with ```ssh <nickname>```, in this case ```ssh capp-dev```. (Note this will only work once I've added your public key to the list of ```authorized_keys```)
 * Create a new empty file with ```touch``` in the ec2-user's ```~/capp_ssh``` directory.
+* Lastly, add another entry to your ```~/.ssh/config``` file to access your cs.uchicago.edu machine:
+    * nickname: you pick!
+    * username: your CNET_ID
+    * hostname: linux.cs.uchicago.edu
 
 ***********************************************************
-## Sending Files (SCP)
+## Sending Files (```scp```)
 Most of the time, you will want to send pre-packaged files to a server for unwrapping and execution (in the case of an app you've built to run in the cloud). In this case, without a nice user interface, ```scp``` is the tool for the job. 
 
 ### Exercise
@@ -129,20 +133,26 @@ scp <your_file> ec2-user@#TODO:~/capp_scp/
 Your command should complete without error
 
 ***********************************************************
-## Working with APIs
-Curl
+## Working with APIs (```curl```)
+Most of us will work with APIs via python, using the "requests" library to get and post information from/to APIs. However, there may be cases where you want to quickly test an API endpoint, in which case knowing the basics of ```curl``` come in handy.
+
 Download an http page
-Post a message to a simple flask app
+### Post a message to a simple flask app
+I've set up a simple API to accept your messages from a ```curl``` statement. Try running the following command to send a ```json``` message to the website:
+
+```
+curl -d "{\"cnetid\": \"YOUR_CNET_ID\"}" -H "Content-Type: application/json" -X POST http://#TODO/api
+```
+
+**Note** this can take any json object so long as the server expects the format you send.
 
 ***********************************************************
-## Python Mini-Environments
-Conda, virtualenv
-Conda create
-Tradeoffs vs virtualenv
+## Python Environments #TODO
+* Conda, virtualenv
+* Conda create
+* Why conda beats virtualenv for Data Science
 
 ***********************************************************
-## Further Virtualization (If we have Time)
-Vagrant
-Reduce lag, 
-Repo-specific configuration
-
+## Further Virtualization (Shallow Dive) #TODO
+* Vagrant
+* Docker
