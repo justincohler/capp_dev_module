@@ -6,13 +6,13 @@
 **Purpose**: This repository serves to help CAPP students refresh their skills with unix-style command line tools, file-system, and common python development setup requirements for collaborative development.
 
 ## Speed up your workflow
-Before we get started, there are five basic CLI tips that will make the rest of the module and your life easier:
+Before we get started, there are five basic CLI tips that will make the rest of the module (and your life) easier:
 
-1. Tab-to-complete: the ```tab``` key will auto-complete (case-sentive) file/folder names after the first letter entered. When traversing directories, or typing long filenames, use ```tabs```.
-1. ```ctrl-a``` (beginning-of-line) and ```ctrl-e``` (end-of-line)
-1. Tilde (```~```): represents your home directory
-1. Wildcards (```*```): Looking for a file in your directory that starts with the letter 'B' or ends with "txt"? ```ls B*``` or ```ls *.txt``` to the rescue.
-2. Last command (```!!```): the text of the last command. Example below:
+1. Tab-to-complete: the ```tab``` key will auto-complete (case-sentive) file/folder names after the first letter entered. When traversing directories, or typing long filenames, use ```tabs```. Note if several folder/files have the same beginning letters, tab twice to see the distinct matches. 
+2. ```ctrl-a``` (beginning-of-line) and ```ctrl-e``` (end-of-line)
+3. Tilde (```~```): represents your home directory
+4. Wildcards (```*```): Looking for a file in your directory that starts with the letter 'B' or ends with "txt"? ```ls B*``` or ```ls *.txt``` to the rescue.
+5. Last command (```!!```): the text of the last command. Example below:
     ```
     $> run /restricted_folder/restricted_file.py
     ERROR: Permission Denied
