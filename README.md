@@ -191,10 +191,39 @@ curl -d "{\"cnetid\": \"YOUR_CNET_ID\"}" -H "Content-Type: application/json" -X 
 **Note** this can take any json object so long as the server expects the format you send.
 
 ***********************************************************
-## Python Environments #TODO
-* Conda, virtualenv
-* Conda create
-* Why conda beats virtualenv for Data Science
+## Python Environments
+For different classes/jobs/projects, you will inevitably need to manage different versions of your python modules, python versions (e.g. 2.7 vs. 3.7) and the number of dependencies in your project. Enter the world of python virtual environments!
+
+Virtual environments allow you to configure a project specific Python environment, complete with its own dependency set and python version. There are two main contenders:
+* conda - a toolkit built-in to Anaconda (popularly known for Jupyter notebooks)
+* virtualenv - a standalone pip installation that does basically the same thing
+
+While ```virtualenv``` is better known today, it will likely be overtaken by ```conda```, as conda leverages native matrix operators to greatly improve the speeds of ```numpy```, ```pandas```, ```scikit-learn```, ```tensorflow```, etc.
+
+### Creating an environment
+Attribution: https://uoa-eresearch.github.io/eresearch-cookbook/recipe/2014/11/20/conda/
+
+Start by creating an environment for a given python version (usually this goes in the top level of your repository)
+* ```conda create -n yourenvname python=x.x [--file requirements.txt]```
+* ex: ```conda create -n myenv python=3.7```
+
+Next, activate the new environment:
+* ```source activate yourenvname```
+* ex: ```conda install -n myenv scipy=0.15.0```
+
+Next, install packages (just like you would with pip):
+* ```conda install -n yourenvname [package_name]```
+
+Deactivating an environment can be done via the following (in the active shell): 
+```source deactivate```
+
+Saving all installed requirements to a standard format can be done as follows:
+```conda list -e > requirements.txt```
+
+The point of saving requirements is to ensure your development team maintains a standardized list of dependencies that can be easily kept up to date. Be sure to keep your ```requirements.txt``` file in your repository, share with your teammates, and update these requirements regularly!
+
+
+
 
 ***********************************************************
 ## Further Virtualization (Shallow Dive) #TODO
