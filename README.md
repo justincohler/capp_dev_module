@@ -201,18 +201,18 @@ Virtual environments allow you to configure a project specific Python environmen
 While ```virtualenv``` is better known today, it will likely be overtaken by ```conda```, as conda leverages native matrix operators to greatly improve the speeds of ```numpy```, ```pandas```, ```scikit-learn```, ```tensorflow```, etc.
 
 ### Creating an environment
-Attribution: https://uoa-eresearch.github.io/eresearch-cookbook/recipe/2014/11/20/conda/
+Source info: https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html
 
 Start by creating an environment for a given python version (usually this goes in the top level of your repository)
 * ```conda create -n yourenvname python=x.x [--file requirements.txt]```
-* ex: ```conda create -n myenv python=3.7```
+* ex: ```conda create -n capp_dev_module python=3.7```
 
 Next, activate the new environment:
 * ```source activate yourenvname```
-* ex: ```conda install -n myenv scipy=0.15.0```
 
 Next, install packages (just like you would with pip):
 * ```conda install -n yourenvname [package_name]```
+* ex: ```conda install -n capp_dev_module scipy=0.15.0```
 
 Deactivating an environment can be done via the following (in the active shell): 
 ```source deactivate```
@@ -221,9 +221,6 @@ Saving all installed requirements to a standard format can be done as follows:
 ```conda list -e > requirements.txt```
 
 The point of saving requirements is to ensure your development team maintains a standardized list of dependencies that can be easily kept up to date. Be sure to keep your ```requirements.txt``` file in your repository, share with your teammates, and update these requirements regularly!
-
-
-
 
 ***********************************************************
 ## Further Virtualization (Shallow Dive) #TODO
