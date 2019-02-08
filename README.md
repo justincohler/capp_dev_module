@@ -54,14 +54,53 @@ Before we get started, there are five basic CLI tips that will make the rest of 
 
 ***********************************************************
 ## Common Functions
-piping
-dumping (carrots)
-con(cat)enate
-head/tail
-touch
-grep
-(p)rocess(s)earch 
-kill
+
+### Viewing files (```head```,```tail```,```cat```)
+
+Looking quickly at an entire file, or just a snippet can be done in several ways.
+
+* ```head -n 5 my_file.txt``` - will print the first 5 lines of my_file.txt 
+* ```tail -n 5 my_file.txt``` - will print the last 5 lines of my_file.txt
+* ```cat my_file.txt``` - will concatenate all lines of the file to a location (stdout by default)
+
+### Writing/Appending (```>/>>```)
+
+Writing to a file can be done by simply appending output to a file with the ```>``` symbol. The example below prints "Hello World!" into a text file called ```hello_world.txt```.
+
+```$> echo "Hello World!" > hello_world.txt```
+
+Appending can be donw with double carrots (```>>```). 
+
+#### Quick Exercise:
+Add another line of text, "Hello World, again!" to the ```hello_world.txt``` file you just created.
+
+### Aside
+Sometimes you need to create a dummy file quickly. In this case, ```touch``` does just this. See a trivial example below
+
+```touch empty_file.txt```
+OR
+```touch ~/Downloads/empty_file.txt```
+
+### Piping
+Piping is how we chain output from one command into the input of another command. Similar to ```%>%``` in R's tidyverse, pipes (```|```) act as a passthrough of several commands, reducing the number of intermediate variables needed to get something done.
+
+A simple example below:
+```ps -a | grep python```
+
+This example first runs the "ps" function, which lists active processes running, then pipes the resulting processes into the "grep" function, which searches through the process list for active processes containing the term "python". You can run through the first of the two functions alone to see the raw output.
+
+#### Exercise
+* Use ```head``` and ```tail``` to print the stanza from lines 78-83 of the file ```the_raven.txt``` found in this repo. 
+* Now, in one line, store that stanza in a file called ```stanza.txt``` (hint: use pipe(s))
+
+### Killing Processes
+The ```kill``` function offers the ability to kill processes that have hung. Kill has several options to kill gracefully (allowing memory to be cleaned up, connections to close, etc.) or harshly (terminating immediately). By default, kill will attempt to shutdown the process gracefully. ```kill -9 <process_name>``` will perform an immediate termination.
+
+#### Exercise
+Let's test it out! In this folder you'll find a python file named ```run_forever.py```. Take a look at the contents of this file and you'll find an infinite loop. 
+
+* Run ```python run_forever.py &``` on the command line. This will execute the infinite loop in the backgroun (```&``` creates a background process)
+* Use ```ps``` to find the hung file and then kill it. 
 
 ***********************************************************
 ## Bash Scripts
