@@ -7,7 +7,7 @@ import unittest
 import os
 
 
-class TestNeighbors(unittest.TestCase):
+class Tests(unittest.TestCase):
     """Unit Tests for the Neighbors Pipeline."""
 
     def setUp(self):
