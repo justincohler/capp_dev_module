@@ -1,5 +1,5 @@
 """
-Unit Tests for the Neighbors Pipeline.
+Unit Tests.
 
 @author: Justin Cohler
 """
@@ -8,9 +8,9 @@ import os
 
 
 class Tests(unittest.TestCase):
-    """Unit Tests for the Neighbors Pipeline."""
+    """Unit Tests."""
 
-    def setUp(self):
+    def test_trivial(self):
         """Set up global vars for tests."""
         self.dirname = os.path.dirname(__file__)
         self.assertTrue(True)
