@@ -103,16 +103,40 @@ Let's test it out! In this folder you'll find a python file named ```run_forever
 * Use ```ps``` to find the hung file and then kill it. 
 
 ***********************************************************
-## Bash Scripts
+## Bash Scripts **TODO**
 if/fi
 loops
 
 ***********************************************************
 ## Working with Paths
-Exporting a variable
-Exporting PATH
-/tmp, /opt, /usr/local
-bashrc, bash_profile
+Paths can be confusing at first in Linux, and work slightly differently than on Mac, vastly differently than Windows. 
+
+### Exporting variables, PATH
+Exporting a variable is incredibly simple:
+```
+export HELLO_WORLD="Hello World!"
+echo $HELLO_WORLD
+```
+Note that this is new variable ```HELLO WORLD``` is ephemeral, and will only last as long as your terminal session is open.
+
+```PATH``` is a built-in variable that contains a colon-separated list of directories pointing to executable files. Adding to the path can be done as follows:
+```export PATH=PATH:~/your_directory/```
+
+### .bash_profile
+There will be times when you want variables stored so that they can be used every time you open a new terminal. In this case, you want to add these variables to a file called ```.bash_profile```, located in your home directory. Let's add that ```HELLO_WORLD``` variable to our bash profile:
+
+```
+echo HELLO_WORLD="Hello World!" >> ~/.bash_profile
+```
+
+Close your terminal and reopen a new one. Verify the variable persisted by echoing it on the command line:
+* ```echo $HELLO_WORLD```
+
+### Other useful folders to acquaint yourself
+
+* ```/tmp``` - a generic top-level folder (visible and write-able by all users on the computer) that deletes all contents on machine shutdown
+*  ```/opt``` - a common location to put programs that do not auto-install (e.g. tomcat servers, etc.)
+* ```/usr/local``` - where installed programs and packages reside 
 
 ***********************************************************
 ## Remote Shells (```ssh```)
