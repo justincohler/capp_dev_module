@@ -7,7 +7,7 @@ import unittest
 import os
 
 
-class Tests(unittest.TestCase):
+class TestTests(unittest.TestCase):
     """Unit Tests."""
 
     def test_trivial(self):
