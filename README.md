@@ -71,7 +71,7 @@ Writing to a file can be done by simply appending output to a file with the ```>
 
 Appending can be donw with double carrots (```>>```). 
 
-#### Quick Exercise:
+### Quick Exercise:
 Add another line of text, "Hello World, again!" to the ```hello_world.txt``` file you just created.
 
 ### Aside
@@ -89,23 +89,59 @@ A simple example below:
 
 This example first runs the "ps" function, which lists active processes running, then pipes the resulting processes into the "grep" function, which searches through the process list for active processes containing the term "python". You can run through the first of the two functions alone to see the raw output.
 
-#### Exercise
+### Exercise
 * Use ```head``` and ```tail``` to print the stanza from lines 78-83 of the file ```the_raven.txt``` found in this repo. 
 * Now, in one line, store that stanza in a file called ```stanza.txt``` (hint: use pipe(s))
 
 ### Killing Processes
 The ```kill``` function offers the ability to kill processes that have hung. Kill has several options to kill gracefully (allowing memory to be cleaned up, connections to close, etc.) or harshly (terminating immediately). By default, kill will attempt to shutdown the process gracefully. ```kill -9 <process_name>``` will perform an immediate termination.
 
-#### Exercise
+### Exercise
 Let's test it out! In this folder you'll find a python file named ```run_forever.py```. Take a look at the contents of this file and you'll find an infinite loop. 
 
 * Run ```python run_forever.py &``` on the command line. This will execute the infinite loop in the backgroun (```&``` creates a background process)
 * Use ```ps``` to find the hung file and then kill it. 
 
 ***********************************************************
-## Bash Scripts **TODO**
-if/fi
-loops
+## Bash Scripts
+A bash script is a script of linux commands, stored in a file ending in ```.sh```.
+
+The start of each script requires the following line:
+```#!/bin/bash```
+
+Variables can be created as follows:
+```MY_VAR="Hello World"```
+
+### IF Statements (```if/fi```)
+Very similar to programming languages like python, IF statements can be scripted as follows:
+
+if [ $1 -gt 100 ] ; then
+    echo "Number is bigger than 100"
+else
+    echo "Number is less than or equal to 100"
+fi
+
+### For loops
+Similarly, bash scripting has for, while, and until looping mechanisms. For loops, most common, are shown below:
+```
+#!/bin/bash
+for i in $( <command> ); do
+    echo $i
+done
+```
+
+ex: Print the numbers 1-10:
+```
+#!/bin/bash
+for i in `seq 1 10`;
+do
+        echo $i
+done    
+```
+
+### Exercise:
+Using ```echo```, the append operator (```>>```), a loop, and an if-statement, 
+* Write "Hello" on even lines and "World" on odd lines, 100 times, to a file named "hello_world.txt"
 
 ***********************************************************
 ## Working with Paths
@@ -247,6 +283,6 @@ Saving all installed requirements to a standard format can be done as follows:
 The point of saving requirements is to ensure your development team maintains a standardized list of dependencies that can be easily kept up to date. Be sure to keep your ```requirements.txt``` file in your repository, share with your teammates, and update these requirements regularly!
 
 ***********************************************************
-## Further Virtualization (Shallow Dive) #TODO
+## Further Virtualization (Shallow Dive)
 * Vagrant
 * Docker
