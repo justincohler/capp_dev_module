@@ -1,5 +1,5 @@
 # CAPP Development Module
-[![Build Status](https://travis-ci.org/justincohler/capp_demo.svg?branch=master)](https://travis-ci.org/justincohler/capp_demo)
+[![Build Status](https://travis-ci.org/justincohler/capp_dev_module.svg?branch=master)](https://travis-ci.org/justincohler/capp_dev_module)
 
 [Accompanying Slide Deck](https://docs.google.com/presentation/d/1_RNhen9dY3SGcDf2WyXVtYPWfooER6y_itb3hYt3HGo/edit?usp=sharing)
 
