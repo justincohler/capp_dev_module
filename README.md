@@ -1,7 +1,7 @@
 # CAPP Development Module
 [![Build Status](https://travis-ci.org/justincohler/capp_demo.svg?branch=master)](https://travis-ci.org/justincohler/capp_demo)
 
-[Accompanying Slide Deck](https://docs.google.com/presentation/d/1Y7EJ8do0qUN05D7yQeSgReTaOUcA7bIBS4b_ZWVNtmo/edit?usp=sharing)
+[Accompanying Slide Deck](https://docs.google.com/presentation/d/1_RNhen9dY3SGcDf2WyXVtYPWfooER6y_itb3hYt3HGo/edit?usp=sharing)
 
 **Purpose**: This repository serves to help CAPP students refresh their skills with unix-style command line tools, file-system, and common python development setup requirements for collaborative development.
 
