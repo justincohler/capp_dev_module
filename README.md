@@ -69,7 +69,7 @@ Writing to a file can be done by simply appending output to a file with the ```>
 
 ```$> echo "Hello World!" > hello_world.txt```
 
-Appending can be donw with double carrots (```>>```). 
+Appending can be done with double carrots (```>>```). 
 
 ### Quick Exercise:
 Add another line of text, "Hello World, again!" to the ```hello_world.txt``` file you just created.
@@ -99,7 +99,7 @@ The ```kill``` function offers the ability to kill processes that have hung. Kil
 ### Exercise
 Let's test it out! In this folder you'll find a python file named ```run_forever.py```. Take a look at the contents of this file and you'll find an infinite loop. 
 
-* Run ```python run_forever.py &``` on the command line. This will execute the infinite loop in the backgroun (```&``` creates a background process)
+* Run ```python run_forever.py &``` on the command line. This will execute the infinite loop in the background (```&``` creates a background process)
 * Use ```ps``` to find the hung file and then kill it. 
 
 ***********************************************************
