@@ -282,7 +282,7 @@ Download an http page
 I've set up a simple API to accept your messages from a ```curl``` statement. Try running the following command to send a ```json``` message to the website:
 
 ```
-curl -d "{\"cnetid\": \"YOUR_CNET_ID\"}" -H "Content-Type: application/json" -X POST http://#TODO/api
+curl -d "{\"cnetid\": \"YOUR_CNET_ID\"}" -H "Content-Type: application/json" -X POST http:///10.150.152.5:5000/api
 ```
 
 **Note** this can take any json object so long as the server expects the format you send.
