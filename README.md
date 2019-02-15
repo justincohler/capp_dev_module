@@ -9,7 +9,7 @@
 Before we get started, there are five basic CLI tips that will make the rest of the module (and your life) easier:
 
 1. Tab-to-complete: the ```tab``` key will auto-complete (case-sentive) file/folder names after the first letter entered. When traversing directories, or typing long filenames, use ```tabs```. Note if several folder/files have the same beginning letters, tab twice to see the distinct matches. 
-2. ```ctrl-a``` (beginning-of-line) and ```ctrl-e``` (end-of-line)
+2. ```ctrl-a``` (beginning-of-line), ```ctrl-e``` (end-of-line), ```ctrl-p``` (previous command), ```ctrl-n``` (next command in history)
 3. Tilde (```~```): represents your home directory
 4. Wildcards (```*```): Looking for a file in your directory that starts with the letter 'B' or ends with "txt"? ```ls B*``` or ```ls *.txt``` to the rescue.
 5. Last command (```!!```): the text of the last command. Example below:
@@ -63,13 +63,18 @@ Looking quickly at an entire file, or just a snippet can be done in several ways
 * ```tail -n 5 my_file.txt``` - will print the last 5 lines of my_file.txt
 * ```cat my_file.txt``` - will concatenate all lines of the file to a location (stdout by default)
 
-### Writing/Appending (```>/>>```)
+### Redirection (```>/>>/<```)
+
+Redirection is all about input and output to and from files, stdin/stdout/stderr, and more.
 
 Writing to a file can be done by simply appending output to a file with the ```>``` symbol. The example below prints "Hello World!" into a text file called ```hello_world.txt```.
 
 ```$> echo "Hello World!" > hello_world.txt```
 
 Appending can be done with double carrots (```>>```). 
+
+More detail and explanation can be found here:
+http://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO-3.html
 
 ### Quick Exercise:
 Add another line of text, "Hello World, again!" to the ```hello_world.txt``` file you just created.
@@ -88,6 +93,8 @@ A simple example below:
 ```ps -a | grep python```
 
 This example first runs the "ps" function, which lists active processes running, then pipes the resulting processes into the "grep" function, which searches through the process list for active processes containing the term "python". You can run through the first of the two functions alone to see the raw output.
+
+**NOTE** grep has many great little utilies, for example ```grep -i``` will search for case-insensitive strings. Take a look at the (man)ual page for details. 
 
 ### Exercise
 * Use ```head``` and ```tail``` to print the stanza from lines 78-83 of the file ```the_raven.txt``` found in this repo. 
@@ -121,12 +128,18 @@ else
     echo "Number is less than or equal to 100"
 fi
 
+Note that the $1 is the first argument given to the bash script. Arguments are much like function parameters in Python. In shell scripting, they are space-separated on the same line as your program. If you had a program called ```helloworld.sh``` that took two integer parameters, running the script would look as follows:
+
+```sh helloworld.sh 100 500```
+
+We will revisit this shortly!
+
 ### For loops
 Similarly, bash scripting has for, while, and until looping mechanisms. For loops, most common, are shown below:
 ```
 #!/bin/bash
 for i in $( <command> ); do
-    echo $i
+    echo "${i} "
 done
 ```
 
@@ -135,13 +148,25 @@ ex: Print the numbers 1-10:
 #!/bin/bash
 for i in `seq 1 10`;
 do
-        echo $i
+        echo "${i} "
 done    
+```
+
+### While loops
+Very similar to for-loops in syntax. Below, note the "-le" operator, which stands for less-than-or-equal. There also exist -lt, -gt, and -ge.
+
+```
+#!/bin/bash
+                                   
+i=1                                 
+while [ $i -le 100 ]; do            
+    echo "${i} "
+done                                
 ```
 
 ### Exercise:
 Using ```echo```, the append operator (```>>```), a loop, and an if-statement, 
-* Write "Hello" on even lines and "World" on odd lines, 100 times, to a file named "hello_world.txt"
+* Write a bash script called ```helloworld.sh``` that prints the odd numbers from 1 to 99, one number per line, to a file named ```helloworld.txt```
 
 ***********************************************************
 ## Working with Paths
