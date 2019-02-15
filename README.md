@@ -169,7 +169,8 @@ Using ```echo```, the append operator (```>>```), a loop, and an if-statement,
 * Write a bash script called ```helloworld.sh``` that prints the odd numbers from 1 to 99, one number per line, to a file named ```helloworld.txt```
 
 Note that you can also loop through files with a for loop using the ```ls``` command:
-```for filename in "ls /home/justincohler/*";
+```
+for filename in "ls /home/justincohler/*";
 do
 ...
 done;
