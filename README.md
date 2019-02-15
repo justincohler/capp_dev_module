@@ -168,6 +168,18 @@ done
 Using ```echo```, the append operator (```>>```), a loop, and an if-statement, 
 * Write a bash script called ```helloworld.sh``` that prints the odd numbers from 1 to 99, one number per line, to a file named ```helloworld.txt```
 
+Note that you can also loop through files with a for loop using the ```ls``` command:
+```for filename in "ls /home/justincohler/*";
+do
+...
+done;
+```
+
+### Exercise:
+Let's use the above filename looping to add a prefix to all the files in the ```rename_files``` folder in this repo:
+* ```cd``` into the ```rename_files``` folder
+* Create a bash script (you name it!) and write a loop that adds a prefix "<YOUR_CNET_ID>_" to the filenames in the folder
+
 ***********************************************************
 ## Working with Paths
 Paths can be confusing at first in Linux, and work slightly differently than on Mac, vastly differently than Windows. 
