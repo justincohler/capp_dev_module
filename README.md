@@ -185,6 +185,8 @@ Let's use the above filename looping to add a prefix to all the files in the ```
 * Create a bash script (you name it!) and write a loop that adds a prefix "<YOUR_CNET_ID>_" to the filenames in the folder
 
 ***********************************************************
+## BREAK
+***********************************************************
 ## Working with Paths
 Paths can be confusing at first in Linux, and work slightly differently than on Mac, vastly differently than Windows. 
 
