@@ -246,15 +246,7 @@ Host <nickname>
 There are plenty of other arguments, but for the sake of this exercise, these are all we need. 
 
 ### Exercise
-
-* Paste the contents of your public key in the ```#capp-dev-module``` Slack channel.
-* Create a new entry in your ```~/.ssh/config``` file (or a new file altogether) with the following details:
-  * nickname: "capp-dev"
-  * username: "ec2-user"
-  * hostname: #TODO
-* ssh into this host with ```ssh <nickname>```, in this case ```ssh capp-dev```. (Note this will only work once I've added your public key to the list of ```authorized_keys```)
-* Create a new empty file with ```touch``` in the ec2-user's ```~/capp_ssh``` directory.
-* Lastly, add another entry to your ```~/.ssh/config``` file to access your cs.uchicago.edu machine:
+* Add an entry to your ```~/.ssh/config``` file to access your cs.uchicago.edu machine:
     * nickname: you pick!
     * username: your CNET_ID
     * hostname: linux.cs.uchicago.edu
@@ -263,9 +255,6 @@ There are plenty of other arguments, but for the sake of this exercise, these ar
 ## Sending Files (```scp```)
 Most of the time, you will want to send pre-packaged files to a server for unwrapping and execution (in the case of an app you've built to run in the cloud). In this case, without a nice user interface, ```scp``` is the tool for the job. 
 
-### Exercise
-Let's repeat the previous exercise, this time touching a new fil locally, then using ```scp``` to send it to the ec2 server.
-
 Format:
 ```
 $> scp <file/folder> <username>@<hostname>:<path_to_folder>
@@ -273,9 +262,8 @@ $> scp <file/folder> <username>@<hostname>:<path_to_folder>
 
 In this case, your command will look like the following:
 ```
-scp <your_file> ec2-user@#TODO:~/capp_scp/
+scp my_file justin@cs.uchicago.edu:~/my_folder/
 ```
-Your command should complete without error
 
 ***********************************************************
 ## Working with APIs (```curl```)
@@ -286,7 +274,7 @@ Download an http page
 I've set up a simple API to accept your messages from a ```curl``` statement. Try running the following command to send a ```json``` message to the website:
 
 ```
-curl -d "{\"cnetid\": \"YOUR_CNET_ID\"}" -H "Content-Type: application/json" -X POST http:///10.150.152.5:5000/api
+curl -d "{\"cnetid\": \"YOUR_CNET_ID\"}" -H "Content-Type: application/json" -X POST http://54.197.202.18/api
 ```
 
 **Note** this can take any json object so long as the server expects the format you send.
