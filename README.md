@@ -90,7 +90,7 @@ OR
 Piping is how we chain output from one command into the input of another command. Similar to ```%>%``` in R's tidyverse, pipes (```|```) act as a passthrough of several commands, reducing the number of intermediate variables needed to get something done.
 
 A simple example below:
-```ps -a | grep python```
+```ps -ax | grep python```
 
 This example first runs the "ps" function, which lists active processes running, then pipes the resulting processes into the "grep" function, which searches through the process list for active processes containing the term "python". You can run through the first of the two functions alone to see the raw output.
 
@@ -106,8 +106,8 @@ The ```kill``` function offers the ability to kill processes that have hung. Kil
 ### Exercise
 Let's test it out! In this folder you'll find a python file named ```run_forever.py```. Take a look at the contents of this file and you'll find an infinite loop. 
 
-* Run ```python run_forever.py &``` on the command line. This will execute the infinite loop in the background (```&``` creates a background process)
-* Use ```ps``` to find the hung file and then kill it. 
+* Run ```python run_forever.py &``` on the command line. This will execute the infinite loop in the background (```&``` creates a background process, though will continue printing to stdout to your console by default)
+* Use a ```ps``` and ```grep``` command you may have learned above ;) to find the hung file and then kill it. 
 
 ***********************************************************
 ## Bash Scripts
@@ -134,44 +134,46 @@ Note that the $1 is the first argument given to the bash script. Arguments are m
 
 We will revisit this shortly!
 
-### For loops
-Similarly, bash scripting has for, while, and until looping mechanisms. For loops, most common, are shown below:
-```
-#!/bin/bash
-for i in $( <command> ); do
-    echo "${i} "
-done
-```
-
-ex: Print the numbers 1-10:
-```
-#!/bin/bash
-for i in `seq 1 10`;
-do
-        echo "${i} "
-done    
-```
-
 ### While loops
-Very similar to for-loops in syntax. Below, note the "-le" operator, which stands for less-than-or-equal. There also exist -lt, -gt, and -ge.
+Below, note the "-le" operator, which stands for less-than-or-equal. There also exist -lt, -gt, and -ge.
 
 ```
 #!/bin/bash
                                    
 i=1                                 
-while [ $i -le 100 ]; do            
-    echo "${i} "
-    i=$(( i+2 ))
-done                                
+while [ $i -lt 5 ]; 
+do            
+    echo "${i}"
+    i=$(( i+1 )) 
+done;                              
+```
+
+### For loops
+A simple example below:
+```
+#!/bin/bash
+for [conditional]; do
+...
+done;
 ```
 
 ### Exercise:
 Using ```echo```, the append operator (```>>```), a loop, and an if-statement, 
 * Write a bash script called ```helloworld.sh``` that prints the odd numbers from 1 to 99, one number per line, to a file named ```helloworld.txt```
 
-Note that you can also loop through files with a for loop using the ```ls``` command:
+Note that you can also loop through files with a for loop using the ```ls``` command. 
+
 ```
-for filename in "ls /home/justincohler/*";
+for filename in `ls ~/*`;
+do
+...
+done;
+```
+
+Note also that this command is wrapped in **tick marks, NOT single quotes**. Backticks (`...`) are equivalent to $(...). Both of these elements evaluate what is contained inside, as opposed to quotations, which simply assume a string value. Therefore the above skeleton can also be written as: 
+
+```
+for filename in $(ls ~/*);
 do
 ...
 done;
